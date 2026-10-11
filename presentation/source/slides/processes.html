@@ -1,0 +1,55 @@
+<section id="processes" data-transition="fade" style="background:#EDE9DD;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1">Three processes compared</h2>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:grid;grid-template-columns:230px 1fr 380px;gap:28px;align-items:center;background:#FFFEFA;padding:24px 28px;border:1px solid #D9D4C7;border-radius:12px">
+<div style="display:flex;flex-direction:column;gap:6px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">Upfront design spec</h3>
+<p style="font-size:24px;color:#5C6880">Classic, document-driven</p>
+</div>
+<div style="display:flex;gap:10px;align-items:center">
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#E3E7EF;padding:18px 10px;border-radius:8px">Full spec by humans</p>
+<x-shape kind="arrow-right" style="width:30px;height:18px;background:#5C6880"></x-shape>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#E3E7EF;padding:18px 10px;border-radius:8px">Sign-off</p>
+<x-shape kind="arrow-right" style="width:30px;height:18px;background:#5C6880"></x-shape>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#E3E7EF;padding:18px 10px;border-radius:8px">Humans build</p>
+<x-shape kind="arrow-right" style="width:30px;height:18px;background:#5C6880"></x-shape>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#E3E7EF;padding:18px 10px;border-radius:8px">Test at the end</p>
+</div>
+<p style="font-size:24px;line-height:1.35;color:#3D4A63"><b>Breaks:</b> a "complete" spec is an illusion; gaps surface late, change is slow and costly.</p>
+</div>
+<div style="display:grid;grid-template-columns:230px 1fr 380px;gap:28px;align-items:center;background:#FFFEFA;padding:24px 28px;border:1px solid #D9D4C7;border-radius:12px">
+<div style="display:flex;flex-direction:column;gap:6px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">SDD</h3>
+<p style="font-size:24px;color:#5C6880">Spec-driven, with agents</p>
+</div>
+<div style="display:flex;gap:10px;align-items:center">
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#F6DDCF;padding:18px 10px;border-radius:8px">One spec: what + how</p>
+<x-shape kind="arrow-right" style="width:30px;height:18px;background:#5C6880"></x-shape>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#F6DDCF;padding:18px 10px;border-radius:8px">Plan and tasks</p>
+<x-shape kind="arrow-right" style="width:30px;height:18px;background:#5C6880"></x-shape>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#F6DDCF;padding:18px 10px;border-radius:8px">Agent builds, fills gaps</p>
+<x-shape kind="arrow-right" style="width:30px;height:18px;background:#5C6880"></x-shape>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#F6DDCF;padding:18px 10px;border-radius:8px">Human reviews diff</p>
+</div>
+<p style="font-size:24px;line-height:1.35;color:#3D4A63"><b>Breaks:</b> same upfront illusion, but now the gaps are filled instantly and at volume. The diff is too large to truly review.</p>
+</div>
+<div style="display:grid;grid-template-columns:230px 1fr 380px;gap:28px;align-items:center;background:#FFFEFA;padding:24px 28px;border:2px solid #1F5FA8;border-radius:12px">
+<div style="display:flex;flex-direction:column;gap:6px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">IDSD</h3>
+<p style="font-size:24px;color:#5C6880">Intent-driven, with agents</p>
+</div>
+<div style="display:flex;gap:10px;align-items:center">
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#D5E3F5;padding:18px 10px;border-radius:8px">Intent + expectations</p>
+<x-shape kind="arrow-right" style="width:30px;height:18px;background:#5C6880"></x-shape>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#D5E3F5;padding:18px 10px;border-radius:8px">Harness pulls context</p>
+<x-shape kind="arrow-right" style="width:30px;height:18px;background:#5C6880"></x-shape>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#D5E3F5;padding:18px 10px;border-radius:8px">Code, validate, repeat</p>
+<x-shape kind="arrow-right" style="width:30px;height:18px;background:#5C6880"></x-shape>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#D5E3F5;padding:18px 10px;border-radius:8px">Merge when met</p>
+</div>
+<p style="font-size:24px;line-height:1.35;color:#3D4A63"><b>Changes:</b> one outcome at a time, done is defined by its owner, the loop repeats until expectations are met. Needs people present throughout.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5C6880">Classic critique: Larman and Basili (IEEE Computer, 2003); Ostroff et al. (XP 2004). IDSD flow: Ahuja (May 2026).</p>
+<aside>SDD and classic upfront specs share one assumption: that someone can specify everything before it exists. The difference is speed. With agents, a gap is no longer a question to a colleague but an immediate, silent decision. IDSD's open risk, by the author's own account: it demands more discipline than most teams have today.</aside>
+</section>

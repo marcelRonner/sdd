@@ -1,0 +1,66 @@
+openapi: 3.1.0
+info:
+  title: Shop API — shoe search and checkout validation
+  version: 0.1.0
+  description: Contract for feature 001-red-shoe-under-90.
+paths:
+  /shoes/search:
+    get:
+      summary: Search shoes by colour family, maximum price, size and postcode
+      parameters:
+        - { name: colourFamily, in: query, schema: { type: string, example: red } }
+        - { name: maxPrice, in: query, description: Maximum selling price incl. tax, in minor units, schema: { type: integer, example: 9000 } }
+        - { name: size, in: query, schema: { type: number, example: 42 } }
+        - { name: postcode, in: query, required: false, schema: { type: string } }
+      responses:
+        "200":
+          description: Matching in-stock variants
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items: { $ref: "#/components/schemas/ShoeResult" }
+  /cart/{cartId}/checkout/validate:
+    post:
+      summary: Re-validate price and stock for all cart lines before payment
+      parameters:
+        - { name: cartId, in: path, required: true, schema: { type: string, format: uuid } }
+      responses:
+        "200":
+          description: Validation result per line
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lines:
+                    type: array
+                    items: { $ref: "#/components/schemas/LineValidation" }
+                  canPay: { type: boolean }
+components:
+  schemas:
+    Money:
+      type: object
+      required: [amount, currency]
+      properties:
+        amount: { type: integer, description: Minor units }
+        currency: { type: string, example: USD }
+    ShoeResult:
+      type: object
+      properties:
+        variantId: { type: string, format: uuid }
+        name: { type: string }
+        colourFamily: { type: string }
+        size: { type: number }
+        price: { $ref: "#/components/schemas/Money" }
+        available: { type: integer }
+        deliverable: { type: boolean, nullable: true }
+    LineValidation:
+      type: object
+      properties:
+        variantId: { type: string, format: uuid }
+        status: { type: string, enum: [valid, priceChanged, outOfStock, notDeliverable] }
+        currentPrice: { $ref: "#/components/schemas/Money" }

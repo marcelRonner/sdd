@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>From SDD to Intent-Driven Development</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+*{box-sizing:border-box;margin:0}
+html,body{background:#2b2b2b}
+body{display:flex;flex-direction:column;align-items:center;gap:24px;padding:24px 0}
+section{position:relative;width:1920px;height:1080px;overflow:hidden;flex:none}
+h1,h2,h3,p{margin:0}
+ul,ol{padding-left:1.2em}
+a{color:#1F5FA8}
+table{border-collapse:collapse;width:100%}
+th,td{padding:0.35em 0.6em;border-bottom:1px solid #D9D4C7;text-align:left;vertical-align:top}
+aside{display:none}
+@media print{
+  @page{size:1920px 1080px;margin:0}
+  html,body{background:none;padding:0;gap:0;display:block}
+  section{page-break-after:always;break-after:page}
+}
+</style></head>
+<body>
+<section id="cover" data-transition="fade" style="background:#14213D;color:#F7F5EF;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+<p style="font-size:28px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#F0A070">Management briefing</p>
+<div style="display:flex;flex-direction:column;gap:40px">
+<h1 style="font-family:'Source Serif 4', Georgia, serif;font-size:96px;font-weight:600;line-height:1.1">From spec-driven to intent-driven development</h1>
+<p style="font-size:32px;line-height:1.4;color:#C9D3E6;width:1200px">Why SDD repeats the problem of upfront design specs, and what owning the intent changes.</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#9FB0CF">Based on K. V. Ahuja, "The Method That Replaces Spec-Driven Development — IDSD" (May 2026)</p>
+<aside>This deck summarizes one author's argument. The framework overview on the last slide is from separate research, as of October 2026.</aside>
+</section>
+
+<section id="problem" data-transition="fade" style="background:#F7F5EF;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1">The problem with spec-driven development</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;padding:40px;border:1px solid #D9D4C7;border-top:8px solid #C2541D;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">One document, four jobs</h3>
+<p style="font-size:28px;line-height:1.4;color:#3D4A63">The spec has to be intent, definition of done, workflow and technical context at once, written however the author felt that day.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;padding:40px;border:1px solid #D9D4C7;border-top:8px solid #C2541D;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">A complete spec cannot be written up front</h3>
+<p style="font-size:28px;line-height:1.4;color:#3D4A63">OpenAI's Symphony spec (2,169 lines) was distilled from a system that already ran. It was written last, not first.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;padding:40px;border:1px solid #D9D4C7;border-top:8px solid #C2541D;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">The agent fills every hole</h3>
+<p style="font-size:28px;line-height:1.4;color:#3D4A63">Gaps become agent decisions, at volume. Teams feel fast while being wrong; a 2025 METR trial found developers slower with AI but sure they were faster.</p>
+</div>
+</div>
+<p style="font-size:32px;font-weight:500;line-height:1.4;background:#14213D;color:#F7F5EF;padding:32px 40px;border-radius:12px">The cost does not disappear. Rework and wasted tokens move down the line to the client's invoice.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5C6880">Source: Ahuja (May 2026). His own example: three days of rework, about $985 in tokens, from one good spec left unattended.</p>
+<aside>Key point: the holes are not a tooling defect. They come from asking people to specify everything before it exists.</aside>
+</section>
+
+<section id="intent" data-transition="fade" style="background:#F7F5EF;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1">The argument for intent: split the spec, assign owners</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;padding:40px;border:1px solid #D9D4C7;border-top:8px solid #1F5FA8;border-radius:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#1F5FA8">Human owns</p>
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">Intent</h3>
+<p style="font-size:28px;line-height:1.4;color:#3D4A63">The outcome wanted, with no technology in it. Five parts: description, constraints, failure scenarios, success scenarios, links to other intents.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;padding:40px;border:1px solid #D9D4C7;border-top:8px solid #1F5FA8;border-radius:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#1F5FA8">Human owns</p>
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">Expectations</h3>
+<p style="font-size:28px;line-height:1.4;color:#3D4A63">The boundary: when the result counts as done, when it has failed, and the limits it must stay inside, in the user's terms.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;padding:40px;border:1px solid #D9D4C7;border-top:8px solid #C2541D;border-radius:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#C2541D">Harness owns</p>
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">Context</h3>
+<p style="font-size:28px;line-height:1.4;color:#3D4A63">The how: tech stack, existing system, codebase constraints. Pulled in progressively by the tooling, not dumped into one document.</p>
+</div>
+</div>
+<p style="font-size:32px;font-weight:500;line-height:1.4;background:#14213D;color:#F7F5EF;padding:32px 40px;border-radius:12px">The agent builds and validates in a loop, but never decides what "done" means. People stay present in the loop instead of approving a large diff at the end.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5C6880">Source: Ahuja's ICE frame (Intent, Context, Expectations), the basis of intent-driven software development (IDSD).</p>
+<aside>Practical first step from the article: take one real outcome this week, write the five parts of its intent, and ask an outsider where an agent would still have to guess. The author admits teams are not yet ready for this and that he has not fully solved staying in the loop.</aside>
+</section>
+
+<section id="processes" data-transition="fade" style="background:#EDE9DD;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1">Three processes compared</h2>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:grid;grid-template-columns:230px 1fr 380px;gap:28px;align-items:center;background:#FFFEFA;padding:24px 28px;border:1px solid #D9D4C7;border-radius:12px">
+<div style="display:flex;flex-direction:column;gap:6px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">Upfront design spec</h3>
+<p style="font-size:24px;color:#5C6880">Classic, document-driven</p>
+</div>
+<div style="display:flex;gap:10px;align-items:center">
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#E3E7EF;padding:18px 10px;border-radius:8px">Full spec by humans</p>
+<svg width="30" height="18" viewBox="0 0 30 18" style="flex:none;align-self:center" aria-hidden="true"><path d="M0 6h18V0l12 9-12 9v-6H0z" fill="#5C6880"/></svg>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#E3E7EF;padding:18px 10px;border-radius:8px">Sign-off</p>
+<svg width="30" height="18" viewBox="0 0 30 18" style="flex:none;align-self:center" aria-hidden="true"><path d="M0 6h18V0l12 9-12 9v-6H0z" fill="#5C6880"/></svg>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#E3E7EF;padding:18px 10px;border-radius:8px">Humans build</p>
+<svg width="30" height="18" viewBox="0 0 30 18" style="flex:none;align-self:center" aria-hidden="true"><path d="M0 6h18V0l12 9-12 9v-6H0z" fill="#5C6880"/></svg>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#E3E7EF;padding:18px 10px;border-radius:8px">Test at the end</p>
+</div>
+<p style="font-size:24px;line-height:1.35;color:#3D4A63"><b>Breaks:</b> a "complete" spec is an illusion; gaps surface late, change is slow and costly.</p>
+</div>
+<div style="display:grid;grid-template-columns:230px 1fr 380px;gap:28px;align-items:center;background:#FFFEFA;padding:24px 28px;border:1px solid #D9D4C7;border-radius:12px">
+<div style="display:flex;flex-direction:column;gap:6px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">SDD</h3>
+<p style="font-size:24px;color:#5C6880">Spec-driven, with agents</p>
+</div>
+<div style="display:flex;gap:10px;align-items:center">
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#F6DDCF;padding:18px 10px;border-radius:8px">One spec: what + how</p>
+<svg width="30" height="18" viewBox="0 0 30 18" style="flex:none;align-self:center" aria-hidden="true"><path d="M0 6h18V0l12 9-12 9v-6H0z" fill="#5C6880"/></svg>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#F6DDCF;padding:18px 10px;border-radius:8px">Plan and tasks</p>
+<svg width="30" height="18" viewBox="0 0 30 18" style="flex:none;align-self:center" aria-hidden="true"><path d="M0 6h18V0l12 9-12 9v-6H0z" fill="#5C6880"/></svg>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#F6DDCF;padding:18px 10px;border-radius:8px">Agent builds, fills gaps</p>
+<svg width="30" height="18" viewBox="0 0 30 18" style="flex:none;align-self:center" aria-hidden="true"><path d="M0 6h18V0l12 9-12 9v-6H0z" fill="#5C6880"/></svg>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#F6DDCF;padding:18px 10px;border-radius:8px">Human reviews diff</p>
+</div>
+<p style="font-size:24px;line-height:1.35;color:#3D4A63"><b>Breaks:</b> same upfront illusion, but now the gaps are filled instantly and at volume. The diff is too large to truly review.</p>
+</div>
+<div style="display:grid;grid-template-columns:230px 1fr 380px;gap:28px;align-items:center;background:#FFFEFA;padding:24px 28px;border:2px solid #1F5FA8;border-radius:12px">
+<div style="display:flex;flex-direction:column;gap:6px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">IDSD</h3>
+<p style="font-size:24px;color:#5C6880">Intent-driven, with agents</p>
+</div>
+<div style="display:flex;gap:10px;align-items:center">
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#D5E3F5;padding:18px 10px;border-radius:8px">Intent + expectations</p>
+<svg width="30" height="18" viewBox="0 0 30 18" style="flex:none;align-self:center" aria-hidden="true"><path d="M0 6h18V0l12 9-12 9v-6H0z" fill="#5C6880"/></svg>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#D5E3F5;padding:18px 10px;border-radius:8px">Harness pulls context</p>
+<svg width="30" height="18" viewBox="0 0 30 18" style="flex:none;align-self:center" aria-hidden="true"><path d="M0 6h18V0l12 9-12 9v-6H0z" fill="#5C6880"/></svg>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#D5E3F5;padding:18px 10px;border-radius:8px">Code, validate, repeat</p>
+<svg width="30" height="18" viewBox="0 0 30 18" style="flex:none;align-self:center" aria-hidden="true"><path d="M0 6h18V0l12 9-12 9v-6H0z" fill="#5C6880"/></svg>
+<p style="flex:1;font-size:24px;font-weight:500;line-height:1.3;text-align:center;background:#D5E3F5;padding:18px 10px;border-radius:8px">Merge when met</p>
+</div>
+<p style="font-size:24px;line-height:1.35;color:#3D4A63"><b>Changes:</b> one outcome at a time, done is defined by its owner, the loop repeats until expectations are met. Needs people present throughout.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5C6880">Classic critique: Larman and Basili (IEEE Computer, 2003); Ostroff et al. (XP 2004). IDSD flow: Ahuja (May 2026).</p>
+<aside>SDD and classic upfront specs share one assumption: that someone can specify everything before it exists. The difference is speed. With agents, a gap is no longer a question to a colleague but an immediate, silent decision. IDSD's open risk, by the author's own account: it demands more discipline than most teams have today.</aside>
+</section>
+
+<section id="frameworks" data-transition="fade" style="background:#F7F5EF;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1">Current SDD frameworks: harnesses, not methods</h2>
+<table style="font-size:24px;color:#14213D;background:#FFFEFA;border:1px solid #D9D4C7">
+<tr style="background:#14213D"><th style="width:18%;text-align:left;color:#F7F5EF">Framework</th><th style="width:20%;text-align:left;color:#F7F5EF">Backer</th><th style="width:31%;text-align:left;color:#F7F5EF">Approach</th><th style="width:31%;text-align:left;color:#F7F5EF">Typical fit</th></tr>
+<tr><td>Spec Kit</td><td>GitHub, open source</td><td>Spec-first CLI: specify, plan, tasks, implement</td><td>Greenfield; de facto default, 30+ agents</td></tr>
+<tr style="background:#F1EEE4"><td>Kiro</td><td>AWS, commercial</td><td>Spec-native IDE: requirements, design, tasks</td><td>Guided workflow in one environment</td></tr>
+<tr><td>OpenSpec</td><td>Fission AI, open source</td><td>Change proposals; specs persist and evolve</td><td>Brownfield, low ceremony</td></tr>
+<tr style="background:#F1EEE4"><td>BMAD-METHOD</td><td>Community, open source</td><td>Multi-agent, role-based product documents</td><td>Large features, heavy process</td></tr>
+<tr><td>Tessl</td><td>Tessl, commercial</td><td>Spec-as-source: edit spec, regenerate code</td><td>Strong traceability, higher lock-in</td></tr>
+<tr style="background:#F1EEE4"><td>Superpowers</td><td>Community, open source</td><td>Skills for coding agents; task size sets rigor</td><td>Everyday work in one agent</td></tr>
+<tr><td>GSD, PAUL</td><td>Community, open source</td><td>Guided plan-and-apply loops</td><td>Solo developers, small teams</td></tr>
+</table>
+<p style="font-size:28px;line-height:1.4;color:#3D4A63">Over 30 frameworks exist. All structure the spec-to-code workflow; none decides who owns intent and the definition of done.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5C6880">As of October 2026. Sources: ssojet.com, softwareseni.com, codemyspec.com, github.com/cameronsjo/spec-compare, developertoolkit.ai.</p>
+<aside>The article also names Agent OS. Reviews note that in most of these tools the spec governs code by convention, not enforcement, which matches the article's point that the harness is not the method.</aside>
+</section>
+
+<section id="speckit" data-transition="fade" style="background:#F7F5EF;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1">Spec Kit in detail: GitHub's open-source SDD toolkit</h2>
+<div style="display:flex;gap:10px;align-items:stretch">
+<p style="flex:1;font-size:24px;line-height:1.3;text-align:center;background:#E3E7EF;padding:16px 10px;border-radius:8px"><b>Constitution</b><br>Project rules every spec inherits</p>
+<svg width="30" height="18" viewBox="0 0 30 18" style="flex:none;align-self:center" aria-hidden="true"><path d="M0 6h18V0l12 9-12 9v-6H0z" fill="#5C6880"/></svg>
+<p style="flex:1;font-size:24px;line-height:1.3;text-align:center;background:#E3E7EF;padding:16px 10px;border-radius:8px"><b>Specify</b><br>What to build and why</p>
+<svg width="30" height="18" viewBox="0 0 30 18" style="flex:none;align-self:center" aria-hidden="true"><path d="M0 6h18V0l12 9-12 9v-6H0z" fill="#5C6880"/></svg>
+<p style="flex:1;font-size:24px;line-height:1.3;text-align:center;background:#E3E7EF;padding:16px 10px;border-radius:8px"><b>Clarify</b><br>Agent asks about gaps</p>
+<svg width="30" height="18" viewBox="0 0 30 18" style="flex:none;align-self:center" aria-hidden="true"><path d="M0 6h18V0l12 9-12 9v-6H0z" fill="#5C6880"/></svg>
+<p style="flex:1;font-size:24px;line-height:1.3;text-align:center;background:#E3E7EF;padding:16px 10px;border-radius:8px"><b>Plan</b><br>Technical design and stack</p>
+<svg width="30" height="18" viewBox="0 0 30 18" style="flex:none;align-self:center" aria-hidden="true"><path d="M0 6h18V0l12 9-12 9v-6H0z" fill="#5C6880"/></svg>
+<p style="flex:1;font-size:24px;line-height:1.3;text-align:center;background:#E3E7EF;padding:16px 10px;border-radius:8px"><b>Tasks</b><br>Ordered work items</p>
+<svg width="30" height="18" viewBox="0 0 30 18" style="flex:none;align-self:center" aria-hidden="true"><path d="M0 6h18V0l12 9-12 9v-6H0z" fill="#5C6880"/></svg>
+<p style="flex:1;font-size:24px;line-height:1.3;text-align:center;background:#E3E7EF;padding:16px 10px;border-radius:8px"><b>Implement</b><br>Agent writes the code</p>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;padding:32px 36px;border:1px solid #D9D4C7;border-top:8px solid #1F5FA8;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">What it is</h3>
+<ul style="font-size:26px;line-height:1.4;color:#3D4A63">
+<li>Released by GitHub in September 2025, MIT licence, free</li>
+<li>A CLI that installs templates and slash commands into the repository</li>
+<li>Works with 30+ coding agents; no lock-in to one vendor</li>
+<li>Most adopted SDD framework; best for greenfield work</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;padding:32px 36px;border:1px solid #D9D4C7;border-top:8px solid #C2541D;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">Where it falls short</h3>
+<ul style="font-size:26px;line-height:1.4;color:#3D4A63">
+<li>Specs do not update during implementation, so they drift from the code</li>
+<li>Clarify and analyse steps are advisory; nothing gates the build</li>
+<li>No check that the running code does what the spec says</li>
+<li>Heavy ceremony for small changes and existing codebases</li>
+</ul>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5C6880">As of mid-2026. Sources: github.com/github/spec-kit, codemyspec.com, braingrid.ai, webreactiva.com. GitHub itself calls Spec Kit an experiment.</p>
+<aside>Link to the main argument: Spec Kit structures the workflow well, but spec, plan and context are still written up front and the human returns at review. That is the harness-without-method pattern the article criticises. Adoption figures differ by source (roughly 90k to 115k GitHub stars in the first half of 2026).</aside>
+</section>
+
+<section id="speckit-spec" data-transition="fade" style="background:#F7F5EF;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1">What a complete Spec Kit spec contains</h2>
+<div style="display:flex;gap:32px;align-items:stretch">
+<div style="flex:11;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;padding:32px 36px;border:1px solid #D9D4C7;border-top:8px solid #1F5FA8;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">spec.md: the chapters of the feature specification</h3>
+<table style="font-size:24px;color:#14213D">
+<tr style="background:#E3E7EF"><th style="width:36%;text-align:left">Chapter</th><th style="width:64%;text-align:left">Content</th></tr>
+<tr><td>1. User scenarios and testing (mandatory)</td><td>Prioritised user stories (P1 to P3), each with an independent test and Given/When/Then acceptance scenarios</td></tr>
+<tr><td>2. Edge cases</td><td>Boundary conditions and error scenarios</td></tr>
+<tr><td>3. Functional requirements (mandatory)</td><td>Numbered requirements (FR-001 ...); unclear points flagged for clarification</td></tr>
+<tr><td>4. Key entities (if data is involved)</td><td>Data objects, their meaning and relationships</td></tr>
+<tr><td>5. Success criteria (mandatory)</td><td>Measurable, technology-agnostic outcomes (SC-001 ...)</td></tr>
+<tr><td>6. Assumptions</td><td>Defaults, scope boundaries, dependencies on existing systems</td></tr>
+</table>
+</div>
+<div style="flex:7;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;padding:32px 36px;border:1px solid #D9D4C7;border-top:8px solid #C2541D;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">Documents around the spec</h3>
+<table style="font-size:24px;color:#14213D">
+<tr style="background:#F6DDCF"><th style="width:38%;text-align:left">File</th><th style="width:62%;text-align:left">Content</th></tr>
+<tr><td>constitution.md</td><td>Project-wide principles</td></tr>
+<tr><td>plan.md</td><td>Summary, technical context, constitution check, project structure, complexity tracking</td></tr>
+<tr><td>research.md</td><td>Technical decisions and options</td></tr>
+<tr><td>data-model.md</td><td>Entities and fields</td></tr>
+<tr><td>contracts/</td><td>Interface definitions</td></tr>
+<tr><td>quickstart.md</td><td>How to run and validate</td></tr>
+<tr><td>tasks.md</td><td>Ordered implementation tasks</td></tr>
+</table>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5C6880">Source: spec-template.md and plan-template.md in github.com/github/spec-kit (main branch, October 2026).</p>
+<aside>The spec itself deliberately holds the what and why; the how sits in plan.md and its companion files. Still, one feature produces up to eight documents written before any code exists, which is the upfront burden the article questions. Chapters 1, 3 and 5 map loosely to the article's intent and expectations; plan.md and the rest map to context. The one-line descriptions of research.md, data-model.md, contracts and quickstart.md are summaries, not template wording.</aside>
+</section>
+
+<section id="examples" data-transition="fade" style="background:#EDE9DD;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1">One feature, two ways: "Buy a red shoe for under $90"</h2>
+<div style="display:flex;gap:32px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;padding:32px 36px;border:1px solid #D9D4C7;border-top:8px solid #C2541D;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">Spec Kit: 8 documents up front</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4A63">Open questions ("is burgundy red?", "is shipping inside $90?") are marked for clarification, then settled as technical decisions in research.md.</p>
+<ul style="font-size:24px;line-height:1.5">
+<li><a href="https://github.com/marcelRonner/sdd/blob/main/examples/spec-kit/specs/001-red-shoe-under-90/spec.md">spec.md</a> · <a href="https://github.com/marcelRonner/sdd/blob/main/examples/spec-kit/specs/001-red-shoe-under-90/plan.md">plan.md</a> · <a href="https://github.com/marcelRonner/sdd/blob/main/examples/spec-kit/specs/001-red-shoe-under-90/research.md">research.md</a></li>
+<li><a href="https://github.com/marcelRonner/sdd/blob/main/examples/spec-kit/specs/001-red-shoe-under-90/data-model.md">data-model.md</a> · <a href="https://github.com/marcelRonner/sdd/blob/main/examples/spec-kit/specs/001-red-shoe-under-90/contracts/shop-api.yaml">contracts</a> · <a href="https://github.com/marcelRonner/sdd/blob/main/examples/spec-kit/specs/001-red-shoe-under-90/quickstart.md">quickstart.md</a></li>
+<li><a href="https://github.com/marcelRonner/sdd/blob/main/examples/spec-kit/specs/001-red-shoe-under-90/tasks.md">tasks.md</a> (30 tasks) · <a href="https://github.com/marcelRonner/sdd/blob/main/examples/spec-kit/.specify/memory/constitution.md">constitution.md</a></li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FFFEFA;padding:32px 36px;border:2px solid #1F5FA8;border-top:8px solid #1F5FA8;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">IDSD: 2 owned files + context pointers</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4A63">The product owner answers the same questions in the intent. Expectations give a reference shelf with "done when" and "failed if" checks.</p>
+<ul style="font-size:24px;line-height:1.5">
+<li><a href="https://github.com/marcelRonner/sdd/blob/main/examples/idsd/intents/INT-001-buy-red-shoe-under-90.md">Intent INT-001</a> (human-owned)</li>
+<li><a href="https://github.com/marcelRonner/sdd/blob/main/examples/idsd/expectations/INT-001-buy-red-shoe-under-90.expectations.md">Expectations INT-001</a> (human-owned)</li>
+<li><a href="https://github.com/marcelRonner/sdd/tree/main/examples/idsd/context">Context sources</a> (harness-owned)</li>
+</ul>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.4;font-weight:500;background:#14213D;color:#F7F5EF;padding:28px 40px;border-radius:12px">Overview and side-by-side comparison: <a href="https://github.com/marcelRonner/sdd" style="color:#F0A070">github.com/marcelRonner/sdd</a></p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5C6880">Example product and stack are fictional; the IDSD file layout is one interpretation of the article.</p>
+<aside>Walk through one hole: spec.md flags "does burgundy count as red?" and research.md answers it as an engineering decision. In the intent, the product owner answers it as constraint 1. Same answer, different owner. That is the core of the argument.</aside>
+</section>
+
+</body></html>

@@ -1,0 +1,32 @@
+<section id="speckit-spec" data-transition="fade" style="background:#F7F5EF;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1">What a complete Spec Kit spec contains</h2>
+<div style="display:flex;gap:32px;align-items:stretch">
+<div style="flex:11;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;padding:32px 36px;border:1px solid #D9D4C7;border-top:8px solid #1F5FA8;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">spec.md: the chapters of the feature specification</h3>
+<table style="font-size:24px;color:#14213D">
+<tr style="background:#E3E7EF"><th style="width:36%;text-align:left">Chapter</th><th style="width:64%;text-align:left">Content</th></tr>
+<tr><td>1. User scenarios and testing (mandatory)</td><td>Prioritised user stories (P1 to P3), each with an independent test and Given/When/Then acceptance scenarios</td></tr>
+<tr><td>2. Edge cases</td><td>Boundary conditions and error scenarios</td></tr>
+<tr><td>3. Functional requirements (mandatory)</td><td>Numbered requirements (FR-001 ...); unclear points flagged for clarification</td></tr>
+<tr><td>4. Key entities (if data is involved)</td><td>Data objects, their meaning and relationships</td></tr>
+<tr><td>5. Success criteria (mandatory)</td><td>Measurable, technology-agnostic outcomes (SC-001 ...)</td></tr>
+<tr><td>6. Assumptions</td><td>Defaults, scope boundaries, dependencies on existing systems</td></tr>
+</table>
+</div>
+<div style="flex:7;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;padding:32px 36px;border:1px solid #D9D4C7;border-top:8px solid #C2541D;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">Documents around the spec</h3>
+<table style="font-size:24px;color:#14213D">
+<tr style="background:#F6DDCF"><th style="width:38%;text-align:left">File</th><th style="width:62%;text-align:left">Content</th></tr>
+<tr><td>constitution.md</td><td>Project-wide principles</td></tr>
+<tr><td>plan.md</td><td>Summary, technical context, constitution check, project structure, complexity tracking</td></tr>
+<tr><td>research.md</td><td>Technical decisions and options</td></tr>
+<tr><td>data-model.md</td><td>Entities and fields</td></tr>
+<tr><td>contracts/</td><td>Interface definitions</td></tr>
+<tr><td>quickstart.md</td><td>How to run and validate</td></tr>
+<tr><td>tasks.md</td><td>Ordered implementation tasks</td></tr>
+</table>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5C6880">Source: spec-template.md and plan-template.md in github.com/github/spec-kit (main branch, October 2026).</p>
+<aside>The spec itself deliberately holds the what and why; the how sits in plan.md and its companion files. Still, one feature produces up to eight documents written before any code exists, which is the upfront burden the article questions. Chapters 1, 3 and 5 map loosely to the article's intent and expectations; plan.md and the rest map to context. The one-line descriptions of research.md, data-model.md, contracts and quickstart.md are summaries, not template wording.</aside>
+</section>

@@ -1,0 +1,36 @@
+# Where the harness may pull context from for INT-001.
+# Pointers only; the content stays in its original place and is read on demand.
+
+intent: INT-001
+
+sources:
+  rules:
+    - path: ../../spec-kit/.specify/memory/constitution.md   # platform principles (reused as-is)
+  code:
+    - repo: shop-platform
+      paths:
+        - backend/src/catalogue/
+        - backend/src/pricing/
+        - backend/src/inventory/
+        - backend/src/delivery/
+        - backend/src/checkout/
+        - backend/prisma/schema.prisma
+  api_catalogue:
+    - repo: shop-platform
+      path: docs/api/openapi.yaml
+  decisions:
+    - repo: shop-platform
+      path: docs/adr/          # architecture decision records
+  connected_intents:
+    - INT-010
+    - INT-011
+    - INT-012
+    - INT-013
+    - INT-020
+
+load_policy:
+  progressive: true            # load per step, never all at once
+  max_files_per_step: 15
+  never_load:
+    - "**/.env"
+    - "**/secrets/**"
