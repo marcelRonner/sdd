@@ -1,6 +1,6 @@
 # Presentation — From spec-driven to intent-driven development
 
-Management briefing, 8 slides.
+Management briefing, 10 slides.
 
 | File | Use |
 |---|---|
@@ -18,10 +18,12 @@ python3 build_deck.py --pdf            # needs: pip install playwright
 Slides:
 
 1. Cover
-2. The problem with spec-driven development
-3. The argument for intent: split the spec, assign owners
-4. Three processes compared (upfront design spec, SDD, IDSD)
-5. Current SDD frameworks
-6. Spec Kit in detail
-7. What a complete Spec Kit spec contains
-8. One feature, two ways — links to [`../examples/`](../examples/)
+2. The problem with spec-driven development (Ahuja)
+3. A second view: SDD as the new waterfall (Barbini)
+4. The argument for intent: split the spec, assign owners (Ahuja)
+5. Two critiques of SDD, one direction (Ahuja vs. Barbini, combined)
+6. Three processes compared (upfront design spec, SDD, IDSD)
+7. Current SDD frameworks
+8. Spec Kit in detail
+9. What a complete Spec Kit spec contains
+10. One feature, two ways — links to [`../examples/`](../examples/)

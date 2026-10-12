@@ -1,0 +1,14 @@
+<section id="synthesis" data-transition="fade" style="background:#F7F5EF;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1">Two critiques of SDD, one direction</h2>
+<table style="font-size:24px;color:#14213D;background:#FFFEFA;border:1px solid #D9D4C7">
+<tr style="background:#14213D"><th style="width:20%;text-align:left;color:#F7F5EF"></th><th style="width:40%;text-align:left;color:#F7F5EF">Ahuja: intent-driven (IDSD)</th><th style="width:40%;text-align:left;color:#F7F5EF">Barbini: keep it agile</th></tr>
+<tr><td><b>Diagnosis</b></td><td>One spec does four jobs; every gap becomes an agent decision</td><td>SDD repeats CASE and MDA; a full spec is as complex as the code</td></tr>
+<tr style="background:#F1EEE4"><td><b>Replaces the big spec</b></td><td>Intent and expectations, written by the outcome owner</td><td>Executable, non-mocked tests; short docs checked against them</td></tr>
+<tr><td><b>Frameworks</b></td><td>Harnesses, not methods</td><td>Scaffolding to learn from, not the destination</td></tr>
+<tr style="background:#F1EEE4"><td><b>Way of working</b></td><td>Agent loops until expectations are met</td><td>Short loops, riskiest part first, replan as you learn</td></tr>
+<tr><td><b>Human role</b></td><td>Owns intent and the definition of done, stays in the loop</td><td>Decides what the system should do and whether it is good enough</td></tr>
+</table>
+<p style="font-size:30px;font-weight:500;line-height:1.4;background:#14213D;color:#F7F5EF;padding:28px 40px;border-radius:12px">Combined: owners write intent and expectations; expectations become executable tests that stay the source of truth.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5C6880">Sources: Ahuja (May 2026), Barbini (August 2026). The combined line is our synthesis, not either author's claim.</p>
+<aside>Both authors agree that documents alone do not hold, that frameworks are not the method, and that a person must own what "right" means. They differ on the artifact: Ahuja keeps owned markdown files (intent, expectations); Barbini wants tests as the spec, close to Gojko Adzic's specification by example. The two fit together: the expectations table in our IDSD example is already a set of examples that can be turned into tests. Barbini's caveat: tests only count if they touch the real system, and agents tend to over-mock.</aside>
+</section>

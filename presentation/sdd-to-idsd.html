@@ -26,8 +26,8 @@ aside{display:none}
 <h1 style="font-family:'Source Serif 4', Georgia, serif;font-size:96px;font-weight:600;line-height:1.1">From spec-driven to intent-driven development</h1>
 <p style="font-size:32px;line-height:1.4;color:#C9D3E6;width:1200px">Why SDD repeats the problem of upfront design specs, and what owning the intent changes.</p>
 </div>
-<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#9FB0CF">Based on K. V. Ahuja, "The Method That Replaces Spec-Driven Development — IDSD" (May 2026)</p>
-<aside>This deck summarizes one author's argument. The framework overview on the last slide is from separate research, as of October 2026.</aside>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#9FB0CF">Based on K. V. Ahuja, "The Method That Replaces Spec-Driven Development — IDSD" (May 2026) and U. Barbini, "Spec-Driven Development: The New Waterfall" (August 2026)</p>
+<aside>This deck summarizes two authors' arguments. The framework overview on the last slide is from separate research, as of October 2026.</aside>
 </section>
 
 <section id="problem" data-transition="fade" style="background:#F7F5EF;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
@@ -49,6 +49,39 @@ aside{display:none}
 <p style="font-size:32px;font-weight:500;line-height:1.4;background:#14213D;color:#F7F5EF;padding:32px 40px;border-radius:12px">The cost does not disappear. Rework and wasted tokens move down the line to the client's invoice.</p>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5C6880">Source: Ahuja (May 2026). His own example: three days of rework, about $985 in tokens, from one good spec left unattended.</p>
 <aside>Key point: the holes are not a tooling defect. They come from asking people to specify everything before it exists.</aside>
+</section>
+
+<section id="waterfall" data-transition="fade" style="background:#EDE9DD;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1">A second view: SDD as the new waterfall</h2>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#C2541D">Same promise each time: architects describe intent, code follows</p>
+<div style="display:flex;gap:10px;align-items:stretch">
+<p style="flex:1;font-size:24px;line-height:1.3;text-align:center;background:#FFFEFA;border:1px solid #D9D4C7;padding:16px 10px;border-radius:8px"><b>CASE tools</b><br>late 1980s</p>
+<svg width="30" height="18" viewBox="0 0 30 18" style="flex:none;align-self:center" aria-hidden="true"><path d="M0 6h18V0l12 9-12 9v-6H0z" fill="#5C6880"/></svg>
+<p style="flex:1;font-size:24px;line-height:1.3;text-align:center;background:#FFFEFA;border:1px solid #D9D4C7;padding:16px 10px;border-radius:8px"><b>RUP, CMMI</b><br>heavy process</p>
+<svg width="30" height="18" viewBox="0 0 30 18" style="flex:none;align-self:center" aria-hidden="true"><path d="M0 6h18V0l12 9-12 9v-6H0z" fill="#5C6880"/></svg>
+<p style="flex:1;font-size:24px;line-height:1.3;text-align:center;background:#FFFEFA;border:1px solid #D9D4C7;padding:16px 10px;border-radius:8px"><b>Model Driven Architecture</b><br>model generates code</p>
+<svg width="30" height="18" viewBox="0 0 30 18" style="flex:none;align-self:center" aria-hidden="true"><path d="M0 6h18V0l12 9-12 9v-6H0z" fill="#5C6880"/></svg>
+<p style="flex:1;font-size:24px;line-height:1.3;text-align:center;background:#F6DDCF;border:1px solid #D9D4C7;padding:16px 10px;border-radius:8px"><b>SDD</b><br>spec generates code (2025+)</p>
+</div>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;padding:36px;border:1px solid #D9D4C7;border-top:8px solid #C2541D;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">The spec becomes the system</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4A63">A spec precise enough to generate a system is as complex as the system. A vague one makes the agent guess, and drift starts early.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;padding:36px;border:1px solid #D9D4C7;border-top:8px solid #C2541D;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">Regenerating is rewriting</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4A63">The same spec yields different systems. Fixes made since the last run are lost, so teams edit code and the spec quietly goes stale.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;padding:36px;border:1px solid #D9D4C7;border-top:8px solid #C2541D;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">Document churning</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4A63">Agents produce plan after plan that reads well but was never tested against reality. Only running code has to match reality.</p>
+</div>
+</div>
+<p style="font-size:30px;font-weight:500;line-height:1.4;background:#14213D;color:#F7F5EF;padding:28px 40px;border-radius:12px">Where agents do pay off: instant knowledge (APIs, legacy code) and cheap spikes that can be thrown away.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5C6880">Source: U. Barbini, "Spec-Driven Development: The New Waterfall", Medium, August 2026.</p>
+<aside>Barbini concedes the tools are new and powerful, and that some SDD work is honest practice. His objection to regeneration rests on today's non-determinism and cost, which he expects to fall. He also promotes his own book, Process Over Magic. His "holodeck" image: an agent will specify something impossible without noticing, and heavily mocked tests can be green while connected to nothing.</aside>
 </section>
 
 <section id="intent" data-transition="fade" style="background:#F7F5EF;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
@@ -73,6 +106,21 @@ aside{display:none}
 <p style="font-size:32px;font-weight:500;line-height:1.4;background:#14213D;color:#F7F5EF;padding:32px 40px;border-radius:12px">The agent builds and validates in a loop, but never decides what "done" means. People stay present in the loop instead of approving a large diff at the end.</p>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5C6880">Source: Ahuja's ICE frame (Intent, Context, Expectations), the basis of intent-driven software development (IDSD).</p>
 <aside>Practical first step from the article: take one real outcome this week, write the five parts of its intent, and ask an outsider where an agent would still have to guess. The author admits teams are not yet ready for this and that he has not fully solved staying in the loop.</aside>
+</section>
+
+<section id="synthesis" data-transition="fade" style="background:#F7F5EF;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1">Two critiques of SDD, one direction</h2>
+<table style="font-size:24px;color:#14213D;background:#FFFEFA;border:1px solid #D9D4C7">
+<tr style="background:#14213D"><th style="width:20%;text-align:left;color:#F7F5EF"></th><th style="width:40%;text-align:left;color:#F7F5EF">Ahuja: intent-driven (IDSD)</th><th style="width:40%;text-align:left;color:#F7F5EF">Barbini: keep it agile</th></tr>
+<tr><td><b>Diagnosis</b></td><td>One spec does four jobs; every gap becomes an agent decision</td><td>SDD repeats CASE and MDA; a full spec is as complex as the code</td></tr>
+<tr style="background:#F1EEE4"><td><b>Replaces the big spec</b></td><td>Intent and expectations, written by the outcome owner</td><td>Executable, non-mocked tests; short docs checked against them</td></tr>
+<tr><td><b>Frameworks</b></td><td>Harnesses, not methods</td><td>Scaffolding to learn from, not the destination</td></tr>
+<tr style="background:#F1EEE4"><td><b>Way of working</b></td><td>Agent loops until expectations are met</td><td>Short loops, riskiest part first, replan as you learn</td></tr>
+<tr><td><b>Human role</b></td><td>Owns intent and the definition of done, stays in the loop</td><td>Decides what the system should do and whether it is good enough</td></tr>
+</table>
+<p style="font-size:30px;font-weight:500;line-height:1.4;background:#14213D;color:#F7F5EF;padding:28px 40px;border-radius:12px">Combined: owners write intent and expectations; expectations become executable tests that stay the source of truth.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5C6880">Sources: Ahuja (May 2026), Barbini (August 2026). The combined line is our synthesis, not either author's claim.</p>
+<aside>Both authors agree that documents alone do not hold, that frameworks are not the method, and that a person must own what "right" means. They differ on the artifact: Ahuja keeps owned markdown files (intent, expectations); Barbini wants tests as the spec, close to Gojko Adzic's specification by example. The two fit together: the expectations table in our IDSD example is already a set of examples that can be turned into tests. Barbini's caveat: tests only count if they touch the real system, and agents tend to over-mock.</aside>
 </section>
 
 <section id="processes" data-transition="fade" style="background:#EDE9DD;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
@@ -143,7 +191,7 @@ aside{display:none}
 <tr style="background:#F1EEE4"><td>Superpowers</td><td>Community, open source</td><td>Skills for coding agents; task size sets rigor</td><td>Everyday work in one agent</td></tr>
 <tr><td>GSD, PAUL</td><td>Community, open source</td><td>Guided plan-and-apply loops</td><td>Solo developers, small teams</td></tr>
 </table>
-<p style="font-size:28px;line-height:1.4;color:#3D4A63">Over 30 frameworks exist. All structure the spec-to-code workflow; none decides who owns intent and the definition of done.</p>
+<p style="font-size:28px;line-height:1.4;color:#3D4A63">Over 30 frameworks exist. All structure the spec-to-code workflow; none decides who owns intent and the definition of done. Use them as scaffolding to learn from, then shape your own process (Barbini).</p>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5C6880">As of October 2026. Sources: ssojet.com, softwareseni.com, codemyspec.com, github.com/cameronsjo/spec-compare, developertoolkit.ai.</p>
 <aside>The article also names Agent OS. Reviews note that in most of these tools the spec governs code by convention, not enforcement, which matches the article's point that the harness is not the method.</aside>
 </section>

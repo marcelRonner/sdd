@@ -1,0 +1,32 @@
+<section id="waterfall" data-transition="fade" style="background:#EDE9DD;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1">A second view: SDD as the new waterfall</h2>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#C2541D">Same promise each time: architects describe intent, code follows</p>
+<div style="display:flex;gap:10px;align-items:stretch">
+<p style="flex:1;font-size:24px;line-height:1.3;text-align:center;background:#FFFEFA;border:1px solid #D9D4C7;padding:16px 10px;border-radius:8px"><b>CASE tools</b><br>late 1980s</p>
+<x-shape kind="arrow-right" style="width:30px;height:18px;background:#5C6880;align-self:center"></x-shape>
+<p style="flex:1;font-size:24px;line-height:1.3;text-align:center;background:#FFFEFA;border:1px solid #D9D4C7;padding:16px 10px;border-radius:8px"><b>RUP, CMMI</b><br>heavy process</p>
+<x-shape kind="arrow-right" style="width:30px;height:18px;background:#5C6880;align-self:center"></x-shape>
+<p style="flex:1;font-size:24px;line-height:1.3;text-align:center;background:#FFFEFA;border:1px solid #D9D4C7;padding:16px 10px;border-radius:8px"><b>Model Driven Architecture</b><br>model generates code</p>
+<x-shape kind="arrow-right" style="width:30px;height:18px;background:#5C6880;align-self:center"></x-shape>
+<p style="flex:1;font-size:24px;line-height:1.3;text-align:center;background:#F6DDCF;border:1px solid #D9D4C7;padding:16px 10px;border-radius:8px"><b>SDD</b><br>spec generates code (2025+)</p>
+</div>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;padding:36px;border:1px solid #D9D4C7;border-top:8px solid #C2541D;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">The spec becomes the system</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4A63">A spec precise enough to generate a system is as complex as the system. A vague one makes the agent guess, and drift starts early.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;padding:36px;border:1px solid #D9D4C7;border-top:8px solid #C2541D;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">Regenerating is rewriting</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4A63">The same spec yields different systems. Fixes made since the last run are lost, so teams edit code and the spec quietly goes stale.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFEFA;padding:36px;border:1px solid #D9D4C7;border-top:8px solid #C2541D;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600;line-height:1.2">Document churning</h3>
+<p style="font-size:26px;line-height:1.4;color:#3D4A63">Agents produce plan after plan that reads well but was never tested against reality. Only running code has to match reality.</p>
+</div>
+</div>
+<p style="font-size:30px;font-weight:500;line-height:1.4;background:#14213D;color:#F7F5EF;padding:28px 40px;border-radius:12px">Where agents do pay off: instant knowledge (APIs, legacy code) and cheap spikes that can be thrown away.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5C6880">Source: U. Barbini, "Spec-Driven Development: The New Waterfall", Medium, August 2026.</p>
+<aside>Barbini concedes the tools are new and powerful, and that some SDD work is honest practice. His objection to regeneration rests on today's non-determinism and cost, which he expects to fall. He also promotes his own book, Process Over Magic. His "holodeck" image: an agent will specify something impossible without noticing, and heavily mocked tests can be green while connected to nothing.</aside>
+</section>
